@@ -36,7 +36,7 @@ response.xpath('//div[@class="m-v-sm info"]//span/text()').extract()
 如何查看是否定位到了目标item，可以使用scrapy shell终端来查看，在Vscode cmd窗口中输入"scrapy shell"。
 
 当scrapy shell被阻止的时候，更换User-Agent:
-scrapy shell -s USER_AGENT="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36" https://movie.douban.com/top250
+scrapy shell -s USER_AGENT="your user-agent" https://movie.douban.com/top250
 
 ==Problems:==
 1. 豆瓣电影TOP250网站，是提取不到信息的。但是如果点开具体的电影页面，就可以提取到了。
@@ -64,7 +64,8 @@ For cleaning scrapy-data.
 
 ##### Step5: 修改middlewares.py文件
 For modifying "User-Agent" and "Headers".
-==Tips:==
+
+Tips:
 1. 使用ScrapeOpsFakeUserAgentMiddleware的时候，必须开全局代理，否则[假代理网站](https://scrapeops.io/app/headers)登不上去。
 2. 以上在各个.py文件中的修改，都要在settings.py文件中打开相关设置。
 
